@@ -1,10 +1,11 @@
-// import "./App.css";
 import { Nav } from "./components/Nav";
+import { ShoeDetail } from "./components/ShoeDetail";
 
 export const App = () => {
   return (
     <div className="p-10 xl:px-24">
-      <Nav></Nav>
+      <Nav />
+      <ShoeDetail />
     </div>
   );
 };
