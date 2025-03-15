@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Nav } from "./components/Nav";
 import { NewArrivalSection } from "./components/NewArrivalSection";
 import { ShoeDetail } from "./components/ShoeDetail";
+import { CartItem } from "./components/CartItem";
 import { Sidebar } from "./components/Sidebar";
 import { SHOES } from "./constant";
 
@@ -16,7 +17,12 @@ export const App = () => {
       <Sidebar
         isOpen={isSideBarOpen}
         onClickClose={() => setIsSideBarOpen(false)}
-      ></Sidebar>
+      >
+        <h2 className="text-2xl font-bold mb-10">Cart</h2>
+        <CartItem item={SHOES[0]} />
+        <CartItem item={SHOES[1]} />
+        <CartItem item={SHOES[2]} />
+      </Sidebar>
     </div>
   );
 };

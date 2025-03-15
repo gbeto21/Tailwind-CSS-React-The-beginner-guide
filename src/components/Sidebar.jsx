@@ -2,7 +2,7 @@ export const Sidebar = ({ children, isOpen, onClickClose }) => {
   return (
     <div>
       <div
-        className={`p-5 fixed right-0 top-0 z-50 shadow-lg h-full w-full md:w-[50%] lg:w-[35%] bg-white transition duration-300 transform ${isOpen ? "translate-x-0" : "translate-x-full"}`}
+        className={`overflow-y-auto p-5 fixed right-0 top-0 z-50 shadow-lg h-full w-full md:w-[50%] lg:w-[35%] bg-white transition duration-300 transform ${isOpen ? "translate-x-0" : "translate-x-full"}`}
       >
         <button
           onClick={onClickClose}
