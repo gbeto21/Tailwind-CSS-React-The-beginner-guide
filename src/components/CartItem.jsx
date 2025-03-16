@@ -31,7 +31,7 @@ export const CartItem = ({
               title=""
               options={SIZES}
               className={"w-16 p-1 pl-2"}
-              defaultValue={size}
+              value={size}
             />
           </div>
           <div>
@@ -40,7 +40,7 @@ export const CartItem = ({
               title=""
               options={QTY}
               className={"w-16 p-1 pl-2"}
-              defaultValue={qty}
+              value={qty}
             />
           </div>
         </div>

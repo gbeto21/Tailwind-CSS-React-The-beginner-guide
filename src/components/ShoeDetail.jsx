@@ -1,7 +1,10 @@
+import { useState } from "react";
 import { Select } from "./Select";
 import { QTY, SIZES } from "../constant";
 
-export const ShoeDetail = ({ shoe }) => {
+export const ShoeDetail = ({ shoe, onClickAdd }) => {
+  const [form, setForm] = useState({ qty: null, size: null });
+
   return (
     <div className="flex flex-col lg:flex-row-reverse space-y-4 dark:text-white">
       {/* Shoe image */}
@@ -18,12 +21,25 @@ export const ShoeDetail = ({ shoe }) => {
           <div className="text-3xl font-extrabold md:text-6xl">
             ${shoe.price}
           </div>
-          <Select title={"QTY"} options={QTY} />
-          <Select title={"SIZE"} options={SIZES} />
+          <Select
+            value={form.qty}
+            onChange={(qty) => setForm({ ...form, qty })}
+            title={"QTY"}
+            options={QTY}
+          />
+          <Select
+            value={form.size}
+            onChange={(size) => setForm({ ...form, size })}
+            title={"SIZE"}
+            options={SIZES}
+          />
         </div>
         {/* Shoe buttons and links */}
         <div className="space-x-10">
-          <button className="btn-press-anim h-14 w-44 bg-black text-white hover:bg-gray-900 active:bg-gray-700 dark:bg-white dark:text-black dark:hover:bg-night-50 dark:hover:text-white">
+          <button
+            onClick={() => onClickAdd(shoe, form.qty, form.size)}
+            className="btn-press-anim h-14 w-44 bg-black text-white hover:bg-gray-900 active:bg-gray-700 dark:bg-white dark:text-black dark:hover:bg-night-50 dark:hover:text-white"
+          >
             Add to bag
           </button>
           <a
