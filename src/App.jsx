@@ -31,7 +31,7 @@ export const App = () => {
   };
 
   return (
-    <div className="animate-fadeIn p-10 xl:px-24">
+    <div className="animate-fadeIn p-10 xl:px-24 dark:bg-night">
       <Nav onClick={() => setIsSideBarOpen(true)} />
       <ShoeDetail />
       <NewArrivalSection items={SHOES} />
@@ -39,7 +39,6 @@ export const App = () => {
         isOpen={isSideBarOpen}
         onClickClose={() => setIsSideBarOpen(false)}
       >
-        <h2 className="text-2xl font-bold mb-10">Cart</h2>
         <Car carItems={FAKE_CAR} />
       </Sidebar>
       <div className="fixed bottom-4 right-4">
