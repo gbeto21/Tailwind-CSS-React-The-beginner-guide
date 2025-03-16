@@ -6,8 +6,9 @@ export const CartItem = ({
   item: {
     qty,
     size,
-    product: { src, title, description, price },
+    product: { src, title, description, price, id },
   },
+  onClickTrash,
 }) => {
   return (
     <div className="cursor-pointer bg-gray-50 hover:bg-[#DAFFA2] p-2 space-y-2 dark:bg-transparent dark:hover:bg-night-50">
@@ -44,7 +45,7 @@ export const CartItem = ({
             />
           </div>
         </div>
-        <button>
+        <button onClick={() => onClickTrash(id)}>
           <CiTrash size={25} className="text-black dark:text-white" />
         </button>
       </div>

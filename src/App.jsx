@@ -44,6 +44,15 @@ export const App = () => {
     }
   };
 
+  const removeFromCart = (productId) => {
+    const updatedCarItems = [...carItems];
+    const existingItemIndex = carItems.findIndex(
+      (item) => item.product.id === productId
+    );
+    updatedCarItems.splice(existingItemIndex, 1);
+    setCarItems(updatedCarItems);
+  };
+
   return (
     <div className="animate-fadeIn p-10 xl:px-24 dark:bg-night">
       <Nav onClick={() => setIsSideBarOpen(true)} />
@@ -53,7 +62,7 @@ export const App = () => {
         isOpen={isSideBarOpen}
         onClickClose={() => setIsSideBarOpen(false)}
       >
-        <Car carItems={carItems} />
+        <Car carItems={carItems} onClickTrash={removeFromCart} />
       </Sidebar>
       <div className="fixed bottom-4 right-4">
         <button
