@@ -8,12 +8,9 @@ import { Car } from "./components/Car";
 import { Sidebar } from "./components/Sidebar";
 import { SHOES } from "./constant";
 
-const FAKE_CAR = SHOES.map((shoe) => {
-  return { product: shoe, qty: 1, size: 44 };
-});
-
 export const App = () => {
   const [isSideBarOpen, setIsSideBarOpen] = useState(false);
+  const [currentShoe, setCurrentShoe] = useState(SHOES[1]);
 
   useEffect(() => {
     const isDarkMode = localStorage.getItem("isDarkMode");
@@ -33,13 +30,13 @@ export const App = () => {
   return (
     <div className="animate-fadeIn p-10 xl:px-24 dark:bg-night">
       <Nav onClick={() => setIsSideBarOpen(true)} />
-      <ShoeDetail />
-      <NewArrivalSection items={SHOES} />
+      <ShoeDetail shoe={currentShoe} />
+      <NewArrivalSection items={SHOES} onClickCard={setCurrentShoe} />
       <Sidebar
         isOpen={isSideBarOpen}
         onClickClose={() => setIsSideBarOpen(false)}
       >
-        <Car carItems={FAKE_CAR} />
+        <Car carItems={[]} />
       </Sidebar>
       <div className="fixed bottom-4 right-4">
         <button

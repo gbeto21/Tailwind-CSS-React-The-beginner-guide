@@ -1,6 +1,9 @@
-export const Card = ({ item }) => {
+export const Card = ({ item, onClick }) => {
   return (
     <div
+      onClick={() => {
+        onClick(item);
+      }}
       className={`${item.className} max-w-xl cursor-pointer transform transition hover:scale-105`}
     >
       <div className="p-8">
