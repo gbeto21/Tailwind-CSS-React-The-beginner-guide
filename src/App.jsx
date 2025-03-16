@@ -2,9 +2,13 @@ import { useState } from "react";
 import { Nav } from "./components/Nav";
 import { NewArrivalSection } from "./components/NewArrivalSection";
 import { ShoeDetail } from "./components/ShoeDetail";
-import { CartItem } from "./components/CartItem";
+import { Car } from "./components/Car";
 import { Sidebar } from "./components/Sidebar";
 import { SHOES } from "./constant";
+
+const FAKE_CAR = SHOES.map((shoe) => {
+  return { product: shoe, qty: 1, size: 44 };
+});
 
 export const App = () => {
   const [isSideBarOpen, setIsSideBarOpen] = useState(false);
@@ -19,9 +23,7 @@ export const App = () => {
         onClickClose={() => setIsSideBarOpen(false)}
       >
         <h2 className="text-2xl font-bold mb-10">Cart</h2>
-        <CartItem item={SHOES[0]} />
-        <CartItem item={SHOES[1]} />
-        <CartItem item={SHOES[2]} />
+        <Car carItems={FAKE_CAR} />
       </Sidebar>
     </div>
   );
